@@ -1,0 +1,10 @@
+#author - BadiGard
+#bin/bash
+#$1 (parameter 1) is file name
+if [ -z "$1" ]; then
+  echo USAGE: ${0} \<file name\>
+  exit
+fi
+file_type=$( cut -d "." -f2 <<< "$1" )
+echo  include /usr/share/nano/${file_type}.nanorc > ~/.nanorc
+nano "$1"
