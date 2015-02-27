@@ -1,6 +1,7 @@
-#author - BadiGard
-#bin/bash
-#$1 (parameter 1) is file name
+#!/bin/bash
+# Author - BadiGard
+# $1 (parameter 1) is the file's name
+
 if [ -z "$1" ]; then
 	echo USAGE: ${0} \<file name\>
 	exit
