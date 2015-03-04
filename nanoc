@@ -8,8 +8,14 @@ if [ -z "$1" ]; then
 fi
 file_type=$( cut -d "." -f2 <<< "$1" )
 
-if [ "$file_type" = "h" ]; then
+if [ "$file_type" == "h" ]; then
 	file_type="c"
 fi 
-echo  include /usr/share/nano/${file_type}.nanorc > ~/.nanorc
+
+if [ -e /usr/share/nano/${file_type}.nanorc]
+    cp /usr/share/nano/${file_type}.nanorc ~/.nanorc
+else
+    rm ~/.nanorc
+fi
+
 nano "$1"
